@@ -114,20 +114,29 @@ const Calendar = () => {
               } ${!isCurrentMonth ? 'opacity-40' : ''} min-h-[140px] max-h-[200px] sm:min-h-[160px] sm:max-h-[200px]`}
             >
               {/* Stamped Date */}
-              <div className="relative w-fit mx-auto mb-2">
-                <span className={`relative text-sm font-bold px-3 py-1 rounded-full z-10 ${
-                  isToday
-                    ? 'bg-red-500 text-white shadow-lg ring-2 ring-red-300'
-                    : 'text-gray-800'
-                }`}>
-                  {d.date()}
-                </span>
-                {isToday && (
-                  <span className="absolute left-1/2 transform -translate-x-1/2 text-[10px] mt-1 text-red-700 font-semibold">
-                    Today
-                  </span>
-                )}
-              </div>
+<div className="flex flex-col items-center mb-2">
+  {/* Weekday name on mobile only */}
+  <span className="text-xs font-semibold text-gray-500 sm:hidden">
+    {d.format('ddd')}
+  </span>
+
+  {/* Date bubble */}
+  <span className={`relative text-sm font-bold px-3 py-1 rounded-full z-10 ${
+    isToday
+      ? 'bg-red-500 text-white shadow-lg ring-2 ring-red-300'
+      : 'text-gray-800'
+  }`}>
+    {d.date()}
+  </span>
+
+  {/* "Today" label */}
+  {isToday && (
+    <span className="text-[10px] mt-1 text-red-700 font-semibold">
+      Today
+    </span>
+  )}
+</div>
+
 
               {/* Events */}
               <div className="space-y-2 overflow-y-auto pr-1 custom-scrollbar">
