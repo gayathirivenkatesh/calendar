@@ -1,0 +1,112 @@
+[
+  {
+    "title": "New Year Kickoff Meeting",
+    "date": "2025-01-03",
+    "time": "09:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Q1 Strategy Planning",
+    "date": "2025-02-14",
+    "time": "10:00",
+    "duration": "2h"
+  },
+
+   {
+    "title": "Project Alpha Review",
+    "date": "2025-02-14",
+    "time": "11:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Client Onboarding Session",
+    "date": "2025-03-21",
+    "time": "14:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "UX Design Workshop",
+    "date": "2025-04-18",
+    "time": "11:30",
+    "duration": "90m"
+  },
+
+  {
+    "title": "Sprint Retrospective",
+    "date": "2025-05-27",
+    "time": "16:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Board Meeting",
+    "date": "2025-06-12",
+    "time": "13:00",
+    "duration": "2h"
+  },
+
+  {
+    "title": "Marketing Strategy Session",
+    "date": "2025-06-12",
+    "time": "14:00",
+    "duration": "2h"
+  },
+
+  {
+    "title": "Sales Forecast Review",
+    "date": "2025-06-20",
+    "time": "11:30",
+    "duration": "1h 30m"
+  },
+
+  {
+    "title": "Product Design Congress",
+    "date": "2025-07-15",
+    "time": "10:00",
+    "duration": "2h"
+  },
+  {
+    "title": "Investor Briefing",
+    "date": "2025-07-15",
+    "time": "11:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Team Huddle",
+    "date": "2025-08-10",
+    "time": "09:30",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Infrastructure Upgrade Review",
+    "date": "2025-09-05",
+    "time": "15:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Annual Goal Setting",
+    "date": "2025-10-22",
+    "time": "10:30",
+    "duration": "90m"
+  },
+
+  {
+    "title": "Campaign Launch Prep",
+    "date": "2025-11-12",
+    "time": "14:00",
+    "duration": "1h"
+  },
+
+  {
+    "title": "Year-End Wrap-Up",
+    "date": "2025-12-20",
+    "time": "13:00",
+    "duration": "2h"
+  }
+]
