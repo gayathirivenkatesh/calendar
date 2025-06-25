@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import dayjs from 'dayjs';
 import events from '../data/events.json';
 
-// Duration parser
 const parseDuration = (str) => {
   const hMatch = str.match(/(\d+)h/);
   const mMatch = str.match(/(\d+)m/);
@@ -67,32 +66,29 @@ const Calendar = () => {
   };
 
   return (
-    <div className="relative max-w-7xl mx-auto px-6 py-10 bg-gradient-to-br from-white to-gray-100 text-gray-900 font-sans rounded-xl shadow-2xl">
+    <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10 bg-gradient-to-br from-white to-gray-100 text-gray-900 font-sans rounded-xl shadow-2xl">
       {/* Header */}
-<div className="flex flex-wrap justify-between items-center gap-4 mb-8">
-  {/* Previous Button */}
-  <button
-    onClick={() => setCurrentMonth(currentMonth.subtract(1, 'month'))}
-    className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 hover:scale-105 transition transform shadow-sm"
-  >
-    <span className="text-xl">←</span>
-    <span className="text-sm font-medium hidden sm:inline">Previous</span>
-  </button>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6 sm:mb-10">
+        <button
+          onClick={() => setCurrentMonth(currentMonth.subtract(1, 'month'))}
+          className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 hover:scale-105 transition transform shadow-sm"
+        >
+          <span className="text-xl">←</span>
+          <span className="text-sm font-medium hidden sm:inline">Previous</span>
+        </button>
 
-  {/* Month-Year Label */}
-  <h2 className="text-3xl font-semibold tracking-tight text-center flex-1 min-w-[200px]">
-    📅 {currentMonth.format('MMMM YYYY')}
-  </h2>
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-center flex-1 min-w-[200px]">
+          📅 {currentMonth.format('MMMM YYYY')}
+        </h2>
 
-  {/* Next Button */}
-  <button
-    onClick={() => setCurrentMonth(currentMonth.add(1, 'month'))}
-    className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 hover:scale-105 transition transform shadow-sm"
-  >
-    <span className="text-sm font-medium hidden sm:inline">Next</span>
-    <span className="text-xl">→</span>
-  </button>
-</div>
+        <button
+          onClick={() => setCurrentMonth(currentMonth.add(1, 'month'))}
+          className="flex items-center gap-2 px-4 py-2 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-100 hover:scale-105 transition transform shadow-sm"
+        >
+          <span className="text-sm font-medium hidden sm:inline">Next</span>
+          <span className="text-xl">→</span>
+        </button>
+      </div>
 
       {/* Weekday Headers */}
       <div className="grid grid-cols-7 text-center text-sm font-semibold text-gray-600 uppercase border-y py-2">
@@ -102,7 +98,7 @@ const Calendar = () => {
       </div>
 
       {/* Calendar Grid */}
-      <div className="grid grid-cols-7 gap-4 mt-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4 mt-4">
         {days.map((d, i) => {
           const dayEvents = getDayEvents(d);
           const isToday = d.isSame(today, 'day');
@@ -112,24 +108,28 @@ const Calendar = () => {
             <div
               key={i}
               className={`rounded-xl p-3 border shadow-sm transition-all duration-200 flex flex-col justify-between ${
-              isToday
-                ? 'bg-gradient-to-tr from-emerald-100 via-teal-200 to-emerald-50 text-gray-800 ring-2 ring-emerald-400 shadow-lg'
-                : 'bg-white text-gray-900'
-              } ${!isCurrentMonth ? 'opacity-40' : ''}`}
-              style={{ minHeight: '160px', maxHeight: '160px' }}
+                isToday
+                  ? 'bg-gradient-to-tr from-emerald-100 via-teal-200 to-emerald-50 text-gray-800 ring-2 ring-emerald-400 shadow-lg'
+                  : 'bg-white text-gray-900'
+              } ${!isCurrentMonth ? 'opacity-40' : ''} min-h-[140px] max-h-[200px] sm:min-h-[160px] sm:max-h-[200px]`}
             >
-              {/* Stamped Date with Pointer */}
-             <div className="relative w-fit mx-auto mb-2">
-                <span className={`relative z-10 text-sm font-bold ${isToday ? 'text-white' : 'text-gray-800'}`}>
+              {/* Stamped Date */}
+              <div className="relative w-fit mx-auto mb-2">
+                <span className={`relative text-sm font-bold px-3 py-1 rounded-full z-10 ${
+                  isToday
+                    ? 'bg-red-500 text-white shadow-lg ring-2 ring-red-300'
+                    : 'text-gray-800'
+                }`}>
                   {d.date()}
                 </span>
                 {isToday && (
-                  <>
-                    <span className="absolute inset-0 w-7 h-7 bg-red-500 rounded-full -top-1 -left-1 z-0"></span>
-                    <span className="absolute left-1/2 -bottom-1.5 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-red-500"></span>
-                  </>
+                  <span className="absolute left-1/2 transform -translate-x-1/2 text-[10px] mt-1 text-red-700 font-semibold">
+                    Today
+                  </span>
                 )}
               </div>
+
+              {/* Events */}
               <div className="space-y-2 overflow-y-auto pr-1 custom-scrollbar">
                 {dayEvents.map((e, idx) => (
                   <div
